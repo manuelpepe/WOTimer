@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WOTimer</title>
+
+	<link rel="manifest" href="manifest.json">
+	<link rel="icon" type="image/png" href="icons/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+	<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">WOTimer</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		      <ul class="nav navbar-nav">
+		        <li><a href="index.html">Home</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workouts <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="index.html?workout=wo1">Workout 1</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		<main>
+			<div class="control">
+				<input type="text" id="ex_input" placeholder="Exercise"/>
+				<button id="ex_add">Add</button>
+			</div>
+			<div class="workout_list">
+				<h4>Workout: </h4>
+				<ol id="ex_list"></ol>	
+			</div>
+
+			<div class="timer-control">
+				<input type="text" id="time_on" value="45" />
+				<input type="text" id="time_off" value="15" />
+				<button id="timer_start">Start</button>
+				<button id="timer_stop">Stop</button>
+			</div>
+
+			<div class="timer">
+				<div id="timer_box" class="box">--</div>
+			</div>		
+		</main>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/workouts.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<audio id="beep" src="sounds/beep.wav" preload="auto"></audio>
+	<script>
+	  if ('serviceWorker' in navigator) {
+	    console.log("Will the service worker register?");
+	    navigator.serviceWorker.register('service-worker.js')
+	      .then(function(reg){
+	        console.log("Yes, it did.");
+	      }).catch(function(err) {
+	        console.log("No it didn't. This happened: ", err)
+	      });
+	  }
+</script>
+</body>
+</html>
